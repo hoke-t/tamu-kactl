@@ -1,6 +1,6 @@
 # TAMU-KACTL
 
-This repo hosts TAMU-KACTL, KTH's ICPC team reference document with some additons and a TAMU flair.
+This repo hosts TAMU-KACTL, KTH's ICPC team reference document with some code additions, stylistic changes, and a TAMU flair.
 It consists of ~25 pages of copy-paste:able code, for use in ICPC-style programming competitions.
 
 See [kactl.pdf](https://github.com/hoke-t/tamu-kactl/blob/master/kactl.pdf) for the final, browsable version,
