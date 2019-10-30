@@ -10,10 +10,10 @@
 #pragma once
 
 int min_rotation(string s) {
-	int a=0, N=sz(s); s += s;
-	rep(b,0,N) rep(i,0,N) {
-		if (a+i == b || s[a+i] < s[b+i]) {b += max(0, i-1); break;}
-		if (s[a+i] > s[b+i]) { a = b; break; }
-	}
-	return a;
+  int a=0, N=sz(s); s += s;
+  rep(b,0,N) rep(i,0,N) {
+    if (a+i == b || s[a+i] < s[b+i]) {b += max(0, i-1); break;}
+    if (s[a+i] > s[b+i]) { a = b; break; }
+  }
+  return a;
 }

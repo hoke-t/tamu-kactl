@@ -7,24 +7,24 @@
 class UnitTestWrapper
 {
 public:
-	UnitTestWrapper(UnitTest* unitTest):
-		m_unitTest(unitTest)
-	{
-		UnitTestManager::getInstance()->registerWrapper(this);
-	}
+  UnitTestWrapper(UnitTest* unitTest):
+    m_unitTest(unitTest)
+  {
+    UnitTestManager::getInstance()->registerWrapper(this);
+  }
 
-	~UnitTestWrapper()
-	{
-		if(m_unitTest != NULL)
-			delete m_unitTest;
-	}
+  ~UnitTestWrapper()
+  {
+    if(m_unitTest != NULL)
+      delete m_unitTest;
+  }
 
 public:
-	UnitTest* getUnitTest()
-	{
-		return m_unitTest;
-	}
+  UnitTest* getUnitTest()
+  {
+    return m_unitTest;
+  }
 
 private:
-	UnitTest* m_unitTest;
+  UnitTest* m_unitTest;
 };

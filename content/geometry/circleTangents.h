@@ -12,8 +12,8 @@ Returns a pair of the two points on the circle with radius r centered around c w
 \end{minipage}
  * Status: tested
  * Usage:
- * 	typedef Point<double> P;
- * 	pair<P,P> p = circleTangents(P(100,2),P(0,0),2);
+ *  typedef Point<double> P;
+ *  pair<P,P> p = circleTangents(P(100,2),P(0,0),2);
  */
 #pragma once
 
@@ -21,7 +21,7 @@ Returns a pair of the two points on the circle with radius r centered around c w
 
 template<class P>
 pair<P,P> circleTangents(const P &p, const P &c, double r) {
-	P a = p-c;
-	double x = r*r/a.dist2(), y = sqrt(x-x*x);
-	return make_pair(c+a*x+a.perp()*y, c+a*x-a.perp()*y);
+  P a = p-c;
+  double x = r*r/a.dist2(), y = sqrt(x-x*x);
+  return make_pair(c+a*x+a.perp()*y, c+a*x-a.perp()*y);
 }

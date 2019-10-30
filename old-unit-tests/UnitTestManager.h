@@ -5,49 +5,49 @@ class UnitTestWrapper;
 
 class UnitTestManager
 {
-	friend class UnitTest;
-	friend class UnitTestWrapper;
+  friend class UnitTest;
+  friend class UnitTestWrapper;
 
 private:
-	UnitTestManager();
-	~UnitTestManager();
+  UnitTestManager();
+  ~UnitTestManager();
 
 public:
-	// Retrieves singleton instance.
-	static UnitTestManager* getInstance();
+  // Retrieves singleton instance.
+  static UnitTestManager* getInstance();
 
 protected:
-	// Reports a "check" failure.
-	void reportCheckFailure(const string& have,
-	                        const string& want,
-	                        const string& message = "");
+  // Reports a "check" failure.
+  void reportCheckFailure(const string& have,
+                          const string& want,
+                          const string& message = "");
 
-	// Reports a failure.
-	void reportFailure(const string& message = "");
+  // Reports a failure.
+  void reportFailure(const string& message = "");
 
 protected:
-	// Registers a test wrapper.
-	void registerWrapper(UnitTestWrapper* unitTestWrapper);
+  // Registers a test wrapper.
+  void registerWrapper(UnitTestWrapper* unitTestWrapper);
 
 public:
-	// Runs all tests.
-	void runAll();
+  // Runs all tests.
+  void runAll();
 
-	// Runs a specific test.
-	void runTest(const string& name);
+  // Runs a specific test.
+  void runTest(const string& name);
 
-	// Print statistics.
-	void printStatistics() const;
-
-private:
-	// Runs a specific test.
-	void runTest(UnitTestWrapper* unitTestWrapper);
+  // Print statistics.
+  void printStatistics() const;
 
 private:
-	// Maps test names to test wrapper objects.
-	map<string, UnitTestWrapper*> m_unitTestWrappers;
+  // Runs a specific test.
+  void runTest(UnitTestWrapper* unitTestWrapper);
 
-	// Statistics.
-	int m_successCount;
-	int m_failureCount;
+private:
+  // Maps test names to test wrapper objects.
+  map<string, UnitTestWrapper*> m_unitTestWrappers;
+
+  // Statistics.
+  int m_successCount;
+  int m_failureCount;
 };
