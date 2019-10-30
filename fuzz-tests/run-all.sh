@@ -7,7 +7,7 @@ failTests=""
 echo -e $failTests
 for test in $tests; do
     echo "$(basename $test): "
-    g++-9 -std=c++14 -O2 $test && ./a.out
+    g++ -std=c++14 -O2 $test && ./a.out
     retCode=$?
     if (($retCode != 0)); then
         echo $retCode
