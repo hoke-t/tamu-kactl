@@ -5,8 +5,8 @@
  * Source: me. using heuristic by user Noobgam on codeforces
  * Status: untested
  * Description: Structure for offline sqrt-decomposition of range queries. Currently tooled for distinct elements in a range, but can easily be modified to work on any static range query problem
- * Usage: Add queries in the form $[L, R)$ using \textbb{add_query()}. After all queries are added, call \textbb{process()}.
- * Time: $O((N + Q) \sqrt N) worst-case, faster in practice
+ * Usage: Add queries in the form $[L, R)$ using add_query(). After all queries are added, call process().
+ * Time: $O((N + Q) \sqrt N)$ worst-case, faster in practice
  */
 
 #pragma once
