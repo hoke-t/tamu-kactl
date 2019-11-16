@@ -5,7 +5,7 @@
  * Source: Folklore
  * Status: Tested at Petrozavodsk
  * Description: Range Minimum Queries on an array. Returns
- * min(V[a], V[a + 1], ... V[b - 1]) in constant time. 
+ * min(V[a], V[a + 1], ... V[b - 1]) in constant time.
  * Usage:
  *  RMQ rmq(values);
  *  rmq.query(inclusive, exclusive);
