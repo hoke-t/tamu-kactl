@@ -5,7 +5,9 @@
  * Source: http://en.wikipedia.org/wiki/Bellman-Ford_algorithm
  * Description: Calculates shortest paths from $s$ in a graph that might have negative edge weights.
  * Unreachable nodes get dist = inf; nodes reachable through negative-weight cycles get dist = -inf.
- * Assumes $V^2 \max |w_i| < \tilde{} 2^{63}$.
+ * Assumes $V^2 \max |w_i| < \tilde{} 2^{63}$. To detect negative-weight cycles without regard for
+ * starting vertex, remove parameter $s$, set all initial node distances to zero, and remove the final
+ * loop of bellmanFord.
  * Time: O(VE)
  * Status: Tested on kattis:shortestpath3
  */
