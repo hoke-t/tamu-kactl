@@ -32,9 +32,9 @@ struct Mo {
 
     int L = 0, R = 0;
     trav(q, qs) {
-      while (L < q.l) del(L++); 
       while (L > q.l) add(--L); 
-      while (R < q.r) add(R++); 
+      while (R < q.r) add(R++);
+      while (L < q.l) del(L++); 
       while (R > q.r) del(--R); 
       ans[q.id] = calc();
     }
