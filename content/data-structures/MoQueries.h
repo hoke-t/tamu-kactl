@@ -40,7 +40,8 @@ struct Mo {
     }
     return ans;
   }
-  // CHange stuff starting here:
+  
+  // Change stuff starting here:
   unordered_map<T, int> ct; int tot; 
   Mo(vector<T> a) : a(a) {
     /* TODO: initialize metadata */
