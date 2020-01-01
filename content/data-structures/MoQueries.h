@@ -32,15 +32,16 @@ struct Mo {
 
     int L = 0, R = 0;
     trav(q, qs) {
-      while (L < q.l) del(L++); 
       while (L > q.l) add(--L); 
-      while (R < q.r) add(R++); 
+      while (R < q.r) add(R++);
+      while (L < q.l) del(L++); 
       while (R > q.r) del(--R); 
       ans[q.id] = calc();
     }
     return ans;
   }
-  // CHange stuff starting here:
+  
+  // Change stuff starting here:
   unordered_map<T, int> ct; int tot; 
   Mo(vector<T> a) : a(a) {
     /* TODO: initialize metadata */

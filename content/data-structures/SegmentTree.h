@@ -11,7 +11,7 @@
 
 struct Tree {
   typedef int T;
-  static constexpr T unit = INT_MIN;
+  static constexpr T unit = INT_MIN; // f(unit, b) must equal b
   T f(T a, T b) { return max(a, b); } // (any associative fn)
   vector<T> s; int n;
   Tree(int n = 0, T def = unit) : s(2*n, def), n(n) {}
