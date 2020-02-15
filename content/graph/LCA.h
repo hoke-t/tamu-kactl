@@ -16,8 +16,8 @@
  */
 #pragma once
 
-typedef vector<pii> vpi;
-typedef vector<vpi> graph;
+typedef vector<pii> vii;
+typedef vector<vii> graph;
 
 #include "../data-structures/RMQ.h"
 
@@ -28,9 +28,9 @@ struct LCA {
 
   LCA(graph& C) : time(sz(C), -99), dist(sz(C)), rmq(dfs(C)) {}
 
-  vpi dfs(graph& C) {
+  vii dfs(graph& C) {
     vector<tuple<int, int, int, ll>> q(1);
-    vpi ret;
+    vii ret;
     int T = 0, v, p, d; ll di;
     while (!q.empty()) {
       tie(v, p, d, di) = q.back();
