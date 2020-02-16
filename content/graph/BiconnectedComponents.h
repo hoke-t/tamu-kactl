@@ -1,54 +1,46 @@
 /**
- * Author: Simon Lindholm
- * Date: 2017-04-17
- * License: CC0
- * Source: folklore
- * Description: Finds all biconnected components in an undirected graph, and
- *  runs a callback for the edges in each. In a biconnected component there
- *  are at least two distinct paths between any two nodes. Note that a node can
- *  be in several components. An edge which is not in a component is a bridge,
- *  i.e., not part of any cycle.
- * Time: O(E + V)
- * Status: tested during MIPT ICPC Workshop 2017
- * Usage:
- *  int eid = 0; ed.resize(N);
- *  for each edge (a,b) {
- *    ed[a].emplace_back(b, eid);
- *    ed[b].emplace_back(a, eid++); }
- *  bicomps([\&](const vi\& edgelist) {...});
+ * Author: MIT
+ * Description: Biconnected components, removing any vertex in component 
+ * doesn't disconnect it. To get block-cut tree, create a bipartite graph
+ * with the original vertices on the left and a vertex for each BCC on the right. 
+ * Draw edge $u\leftrightarrow v$ if $u$ is contained within the BCC for $v.$
+ * Time: O(N+M)
+ * Source: GeeksForGeeks (corrected)
  */
-#pragma once
 
-vi num, st;
-vector<vector<pii>> ed;
-int Time;
-template<class F>
-int dfs(int at, int par, F& f) {
-  int me = num[at] = ++Time, e, y, top = me;
-  trav(pa, ed[at]) if (pa.second != par) {
-    tie(y, e) = pa;
-    if (num[y]) {
-      top = min(top, num[y]);
-      if (num[y] < me)
-        st.push_back(e);
-    } else {
-      int si = sz(st);
-      int up = dfs(y, e, f);
-      top = min(top, up);
-      if (up == me) {
-        st.push_back(e);
-        f(vi(st.begin() + si, st.end()));
-        st.resize(si);
+struct BCC {
+  vector<vii> adj;
+  vii ed;
+  vi disc;
+  void ae(int u, int v) { 
+    adj[u].pb(make_pair(v,sz(ed))), adj[v].pb(make_pair(u,sz(ed))), ed.pb(make_pair(u,v)); }
+  int N;
+  vi st; vector<vi> bccs; // edges for each bcc
+  int bcc(int u, int p = -1) { // return lowest disc
+    static int ti = 0; int low = disc[u] = ++ti, child = 0;
+    trav(i,adj[u]) if (i.snd != p) {
+      if (!disc[i.fst]) {
+        child ++; st.pb(i.snd);
+        int LOW = bcc(i.fst,i.snd); low = min(low, LOW);
+        // if (disc[u] < LOW) -> bridge
+        if (disc[u] <= LOW) { // get edges in bcc
+          // if (p != -1 || child > 1) -> u is articulation pt
+          bccs.emplace_back(); vi& tmp = bccs.back(); // new bcc
+          for (bool done = 0; !done; tmp.pb(st.back()),
+              st.pop_back()) done |= st.back() == i.snd;
+        }
+      } else if (disc[i.fst] < disc[u]) {
+        low = min(low, (int)disc[i.fst]);
+        st.pb(i.snd);
       }
-      else if (up < me) st.push_back(e);
-      else { /* e is a bridge */ }
     }
+    return low;
   }
-  return top;
-}
-
-template<class F>
-void bicomps(F f) {
-  num.assign(sz(ed), 0);
-  rep(i,0,sz(ed)) if (!num[i]) dfs(i, -1, f);
-}
+  void init(int _N) {
+    N = _N; rep(i,0,N) disc[i] = 0;
+    adj.resize(N);
+    disc.resize(N);
+    rep(i,0,N) if (!disc[i]) bcc(i); 
+    /// st should be empty after each iteration
+  }
+};
