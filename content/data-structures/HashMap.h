@@ -11,7 +11,7 @@
 #include <bits/extc++.h> /** keep-include */
 // To use most bits rather than just the lowest ones:
 struct chash {
-  const uint64_t C = ll(2e18 * M_PI) + 71; // large odd number
+  const uint64_t C = ll(2e18 * M_PI) | 71; // large odd number
   ll operator()(ll x) const { return __builtin_bswap64(x*C); }
 };
 __gnu_pbds::gp_hash_table<ll,int,chash> h({},{},{},{},{1<<16});
@@ -20,8 +20,13 @@ __gnu_pbds::gp_hash_table<ll,int,chash> h({},{},{},{},{1<<16});
 
 const int RANDOM = chrono::high_resolution_clock::now().time_since_epoch().count();
 struct chash { // To use most bits rather than just the lowest ones:
+<<<<<<< HEAD
   const uint64_t C = ll(2e18 * M_PI) + 71; // large odd number
   ll operator()(ll x) const { return __builtin_bswap64((x^RANDOM)*C); }
+=======
+  const uint64_t C = ll(2e18 * M_PI) | 71; // large odd number
+  ll operator()(ll x) const { return __builtin_bswap64((x^RANDOM)*C); }
+>>>>>>> 03a1194040f2b2d744de3721dc49efa61d65bf9c
 };
 __gnu_pbds::gp_hash_table<ll, int, chash> h({},{},{},{}, {1 << 16});
 */
