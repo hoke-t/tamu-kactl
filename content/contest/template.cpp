@@ -3,7 +3,7 @@ using namespace std;
 
 #define rep(i, a, b) for(int i = (a); i < (b); ++i)
 #define trav(a, x) for(auto& a : x)
-#define all(x) begin(x), end(x)
+#define all(x) x.begin(), x.end() 
 #define sz(x) (int)(x).size()
 #define pb push_back
 #define fst first
@@ -14,8 +14,8 @@ template<class T> bool ckmax(T& a, const T& b) { return a < b ? a = b, 1 : 0; }
 
 typedef long long ll;
 typedef long double ld;
-typedef pair<ll, ll> pii;
-typedef vector<ll> vi;
+typedef pair<int, int> pii;
+typedef vector<int> vi;
 typedef vector<vi> vvi;
 typedef vector<pii> vii;
 
