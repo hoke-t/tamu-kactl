@@ -2,10 +2,13 @@
 using namespace std;
 
 #define rep(i, a, b) for(int i = (a); i < (b); ++i)
+#define per(i, a, b) for(int i = (b)-1; i >= (a); --i)
 #define trav(a, x) for(auto& a : x)
-#define all(x) x.begin(), x.end() 
+#define all(x) begin(x), end(x)
 #define sz(x) (int)(x).size()
 #define pb push_back
+#define eb emplace_back
+#define mp make_pair
 #define fst first
 #define snd second
 
@@ -22,4 +25,5 @@ typedef vector<pii> vii;
 int main() {
   cin.tie(0)->sync_with_stdio(0);
   cin.exceptions(cin.failbit);
+
 }
