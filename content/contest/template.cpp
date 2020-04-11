@@ -20,6 +20,6 @@ typedef vector<vi> vvi;
 typedef vector<pii> vii;
 
 int main() {
-  cin.sync_with_stdio(0); cin.tie(0);
+  cin.tie(0)->sync_with_stdio(0);
   cin.exceptions(cin.failbit);
 }
