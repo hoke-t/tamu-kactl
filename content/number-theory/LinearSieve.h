@@ -11,7 +11,7 @@
 
 const int MAX_PR = 5000000;
 int lp[MAX_PR + 1] = {0};
-vi factor_sieve(int lim) {
+vi factorSieve() {
   vi pr;
   rep(i, 2, MAX_PR + 1) {
     if (lp[i] == 0) pr.pb(lp[i] = i);
