@@ -20,6 +20,8 @@ typedef long double ld;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
+typedef vector<ll> vl;
+typedef vector<vl> vvl;
 typedef vector<pii> vii;
 
 int main() {
