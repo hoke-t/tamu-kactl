@@ -27,7 +27,7 @@ T max_flow(graph& g, int s, int t) {
       int p; tie(inc, u, p) = pq.top(); pq.pop();
       if (par[u] != -1) continue; par[u] = p;
       if (u == t) break; 
-      trav(e, g[u]) {
+      for (auto e : g[u]) {
         tie(v, cap) = e;
         if (par[v] != -1 or cap == 0) continue;
         pq.push({min(inc, cap), v, u}); 

@@ -31,7 +31,7 @@ struct Mo {
     });
 
     int L = 0, R = 0;
-    trav(q, qs) {
+    for (auto q : qs) {
       while (L > q.l) add(--L); 
       while (R < q.r) add(R++);
       while (L < q.l) del(L++); 

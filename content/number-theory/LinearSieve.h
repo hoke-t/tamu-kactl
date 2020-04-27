@@ -15,7 +15,7 @@ vi factorSieve() {
   vi pr;
   rep(i, 2, MAX_PR + 1) {
     if (lp[i] == 0) pr.pb(lp[i] = i);
-    trav(p, pr) {
+    for (auto p : pr) {
       if (lp[i] < p or i*p > MAX_PR) break;
       lp[i*p] = p;
     }
