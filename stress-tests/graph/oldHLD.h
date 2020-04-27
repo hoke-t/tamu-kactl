@@ -23,7 +23,7 @@ struct HLD {
 
   HLD(vector<vpi>& g) : V(sz(g)) {
     dfs(0, -1, g, 0);
-    trav(c, C) {
+    for(auto &c: C) {
       c.tree = {sz(c.nodes), 0};
       for (int ni : c.nodes)
         c.tree.update(V[ni].pos, V[ni].val);
@@ -73,6 +73,7 @@ struct HLD {
     return ans;
   }
 
+<<<<<<< HEAD
   pii dfs(int at, int par, vector<vpi>& g, int d) {
     V[at].d = d; V[at].par = par;
     int sum = 1, ch, nod, sz;
@@ -94,3 +95,26 @@ struct HLD {
     return pii(sum, ch);
   }
 };
+=======
+  pii dfs(int at, int par, vector<vpi>& g, int d) {
+    V[at].d = d; V[at].par = par;
+    int sum = 1, ch, nod, sz;
+    tuple<int,int,int> mx(-1,-1,-1);
+    for(auto &e: g[at]){
+      if (e.first == par) continue;
+      tie(sz, ch) = dfs(e.first, at, g, d+1);
+      V[e.first].val = e.second;
+      sum += sz;
+      mx = max(mx, make_tuple(sz, e.first, ch));
+    }
+    tie(sz, nod, ch) = mx;
+    if (2*sz < sum) return pii(sum, -1);
+    if (ch == -1) { ch = sz(C); C.emplace_back(); }
+    V[nod].pos = sz(C[ch].nodes);
+    V[nod].chain = ch;
+    C[ch].par = at;
+    C[ch].nodes.push_back(nod);
+    return pii(sum, ch);
+  }
+};
+>>>>>>> 0957a020c4f16983518aea3f59b304c40622e77e
