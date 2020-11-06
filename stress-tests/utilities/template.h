@@ -23,4 +23,3 @@ typedef vector<ll> vl;
 typedef vector<vl> vvl;
 typedef vector<pii> vii;
 
-mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
