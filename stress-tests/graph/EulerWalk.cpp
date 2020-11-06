@@ -91,7 +91,7 @@ int main() {
 			vi res;
                         if (cycle) res = eulerCycle(ed, m, start);
                         else {
-                          vii r = eulerWalk(ed, m, start);
+                          vector<pair<int,int>> r = eulerWalk(ed, m, start);
                           for (auto x: r) res.pb(x.fst);
                         }
 			if (0) {
