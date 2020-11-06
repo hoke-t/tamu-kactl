@@ -92,7 +92,7 @@ int main() {
                         if (cycle) res = eulerCycle(ed, m, start);
                         else {
                           vector<pair<int,int>> r = eulerWalk(ed, m, start);
-                          for (auto x: r) res.pb(x.fst);
+                          for (auto x: r) res.push_back(x.first);
                         }
 			if (0) {
 				cout << n << ' ' << m << ' ' << start << ' ' << undir << ' ' << cycle << endl;
