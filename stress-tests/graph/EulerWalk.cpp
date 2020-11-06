@@ -88,7 +88,12 @@ int main() {
 				theEdges.emplace_back(a, b);
 			}
 
-			vi res = cycle ? eulerCycle(ed, m, start) : eulerWalk(ed, m, start);
+			vi res;
+                        if (cycle) res = eulerCycle(ed, m, start);
+                        else {
+                          vii r = eulerWalk(ed, m, start);
+                          for (auto x: r) res.pb(x.fst);
+                        }
 			if (0) {
 				cout << n << ' ' << m << ' ' << start << ' ' << undir << ' ' << cycle << endl;
 				rep(i,0,n) {
